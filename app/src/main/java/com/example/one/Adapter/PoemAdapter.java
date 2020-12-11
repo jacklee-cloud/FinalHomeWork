@@ -2,6 +2,7 @@ package com.example.one.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,5 @@ public class PoemAdapter extends RecyclerView.Adapter<PoemAdapter.ViewHolder> {
     public int getItemCount(){
         return poemBeanList.size();
 }
-
 
 }

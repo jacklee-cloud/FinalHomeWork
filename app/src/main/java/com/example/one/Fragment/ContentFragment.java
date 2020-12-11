@@ -1,6 +1,7 @@
 package com.example.one.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,10 +48,6 @@ public class ContentFragment extends Fragment {
         showImage=(ImageView)view.findViewById(R.id.show_image);
         showContent=(TextView)view.findViewById(R.id.show_content);
         myRecyclerView=(RecyclerView) view.findViewById(R.id.recycler_view);
-       /*
-         这两种方法用来解决刷新闪屏问题，亲测没用。。。。。
-       //((SimpleItemAnimator)myRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        //myRecyclerView.getItemAnimator().setChangeDuration(0);*/
         refreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipe_refresh);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -83,6 +80,12 @@ public class ContentFragment extends Fragment {
             }
         });
         initView();
+        try {
+            //保证主线程开始执行时，poemBeanList中已经拿到了数据
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         GridLayoutManager layoutManager=new GridLayoutManager(getActivity(),1);
         myRecyclerView.setLayoutManager(layoutManager);
         adapter=new PoemAdapter(poemBeanList);
@@ -107,18 +110,22 @@ public class ContentFragment extends Fragment {
                          poemBeanList.add(poemBeans.get(0));
                  }
              });
-
-
          }
+
 
     }
 
 
-    private void refreshPoem(){
+    private void refreshPoem() {
         initView();
-        adapter=new PoemAdapter(poemBeanList);
-        myRecyclerView.setAdapter(adapter);
-       refreshLayout.setRefreshing(false);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        adapter.notifyDataSetChanged();
+        refreshLayout.setRefreshing(false);
+
     }
 
 
