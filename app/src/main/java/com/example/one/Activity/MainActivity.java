@@ -49,12 +49,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (loginInterface.login(count,password)){
                     Toast.makeText(this,"登陆成功！",Toast.LENGTH_SHORT).show();
                     UserBean user=dataModel.getUser(count,password);
-                    Intent goToShowActibity=new Intent(MainActivity.this, ShowActivity.class);
-                    goToShowActibity.putExtra(ShowActivity.USER_NAME,user.getUserName());
-                    goToShowActibity.putExtra(ShowActivity.AUTO_GRAPGH,user.getAutograph());
-                    goToShowActibity.putExtra(ShowActivity.USER_COUNT,count);
-                    goToShowActibity.putExtra(ShowActivity.PASSWORD,password);
-                    startActivity(goToShowActibity);
+                    Intent goToShowActivity=new Intent(MainActivity.this, ShowActivity.class);
+                    goToShowActivity.putExtra(ShowActivity.USER_NAME,user.getUserName());
+                    goToShowActivity.putExtra(ShowActivity.AUTO_GRAPGH,user.getAutograph());
+                    goToShowActivity.putExtra(ShowActivity.USER_COUNT,count);
+                    goToShowActivity.putExtra(ShowActivity.PASSWORD,password);
+                    startActivity(goToShowActivity);
+                    break;
+                }else if(count.isEmpty()||password.isEmpty()){
+                    Toast.makeText(this,"账号密码不能为空！",Toast.LENGTH_SHORT).show();
                     break;
                 }else {
                     Toast.makeText(this,"登陆失败！请检查用户名和密码是否正确！",Toast.LENGTH_SHORT).show();
