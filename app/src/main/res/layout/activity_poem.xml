@@ -7,6 +7,7 @@
     android:background="@drawable/poem_background"
     tools:context=".Activity.PoemActivity">
 
+
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="0dp"
@@ -23,31 +24,30 @@
             android:id="@+id/title_in_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
             android:gravity="center"
-            />
+            android:textSize="25dp" />
+
         <TextView
             android:id="@+id/author_in_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:gravity="center"
-            />
+            android:textSize="15dp" />
+
         <TextView
             android:id="@+id/poem_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:gravity="center"
             android:inputType="textMultiLine"
-            />
+            android:textSize="15dp" />
+
         <TextView
             android:id="@+id/intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:textSize="10dp"
-            />
+            android:textSize="10dp" />
 
 
     </LinearLayout>

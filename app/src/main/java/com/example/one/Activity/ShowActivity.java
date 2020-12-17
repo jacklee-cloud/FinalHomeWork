@@ -2,6 +2,7 @@ package com.example.one.Activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -30,6 +31,7 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
     private UserFragment userFragment;
     private TextView textViewCount;
     private TextView textViewUser;
+    private Toolbar toolbar;
     private String userName;
     private String userAutoGragph;
     private String userCount;
@@ -46,6 +48,8 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
         myViewPager=(ViewPager)findViewById(R.id.myViewPager);
         textViewCount=(TextView)findViewById(R.id.textView_content);
         textViewUser=(TextView)findViewById(R.id.textView_user);
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         contentFragment=new ContentFragment();
         userFragment=new UserFragment();
         textViewCount.setOnClickListener(this);

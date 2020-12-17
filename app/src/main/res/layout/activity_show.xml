@@ -10,6 +10,13 @@
     android:paddingTop="0dp"
     tools:context=".Activity.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#CCCCCC"
+        />
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/myViewPager"
             android:layout_width="match_parent"

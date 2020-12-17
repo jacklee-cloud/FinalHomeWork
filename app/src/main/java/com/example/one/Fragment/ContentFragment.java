@@ -111,8 +111,6 @@ public class ContentFragment extends Fragment {
                  }
              });
          }
-
-
     }
 
 
