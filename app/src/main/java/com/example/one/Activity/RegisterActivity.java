@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().hide();
         edit_count_register=(EditText)findViewById(R.id.edit_count_register);
         edit_password_register=(EditText)findViewById(R.id.edit_password_register);
         confirm_password=(EditText)findViewById(R.id.confirm_password);
