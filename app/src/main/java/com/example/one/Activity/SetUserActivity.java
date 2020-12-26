@@ -26,6 +26,8 @@ public class SetUserActivity extends AppCompatActivity implements View.OnClickLi
     private String password;
     private EditText editUserName;
     private EditText ediAutoGraph;
+    private String userName;
+    private String autoGraph;
     private Button saveUser;
     private Button cancel;
     private DataModel dataModel=new DataModelImpl();
@@ -39,8 +41,12 @@ public class SetUserActivity extends AppCompatActivity implements View.OnClickLi
         saveUser=(Button)findViewById(R.id.save_edit);
         cancel=(Button)findViewById(R.id.cancel_edit);
         Intent intent=getIntent();
+        userName=intent.getStringExtra(EDIT_USER_NAME);
+        autoGraph=intent.getStringExtra(EDIT_AUTOGRAPH);
         count=intent.getStringExtra(COUNT);
         password=intent.getStringExtra(PASSWORD);
+        editUserName.setText(userName);
+        ediAutoGraph.setText(autoGraph);
         saveUser.setOnClickListener(this);
         cancel.setOnClickListener(this);
     }

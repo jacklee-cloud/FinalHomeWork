@@ -54,14 +54,16 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         goToSetUserActivity.putExtra(SetUserActivity.COUNT,count);
         goToSetUserActivity.putExtra(SetUserActivity.PASSWORD,password);
         startActivity(goToSetUserActivity);
-
     }
     @Override
     public void onResume(){
         super.onResume();
+        //重新设置界面上的UI文字
         UserBean userBean=dataModel.getUser(count,password);
-        userName.setText(userBean.getUserName());
-        userAutograph.setText(userBean.getAutograph());
+        username=userBean.getUserName();
+        auto=userBean.getAutograph();
+        userName.setText(username);
+        userAutograph.setText(auto);
 
     }
 
